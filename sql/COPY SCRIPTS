@@ -1,0 +1,5 @@
+## Creating the schemas
+
+CREATE SCHEMA staging;
+CREATE SCHEMA warehouse;
+CREATE SCHEMA analytics;
