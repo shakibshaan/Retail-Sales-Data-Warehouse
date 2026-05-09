@@ -1,1 +1,51 @@
+-- 01_staging/01_create_staging_table.sql
 
+IF OBJECT_ID ('staging.raw_orders', 'U') IS NOT NULL 
+    DROP TABLE staging.raw_orders;
+CREATE TABLE staging.raw_orders (
+    ship_mode       NVARCHAR(50),
+    segment         NVARCHAR(50),
+    country         NVARCHAR(50),
+    city            NVARCHAR(50),
+    state_s         NVARCHAR(50),
+    postal_code     NVARCHAR(50),
+    region          NVARCHAR(50),
+    category        NVARCHAR(50),
+    sub_category    NVARCHAR(50),
+    sales           DECIMAL(10, 4),
+    quantity        INT,
+    discount        DECIMAL(4, 2),
+    profit          DECIMAL(10, 4)            
+);
+
+SELECT * FROM INFORMATION_SCHEMA.TABLES 
+WHERE TABLE_SCHEMA = 'staging' AND TABLE_NAME = 'raw_orders';
+
+
+-- 01_staging/02_load_staging.sql
+
+CREATE OR ALTER PROCEDURE staging.staging_load AS
+BEGIN
+   BEGIN TRY
+    PRINT 'Loading Staging Layer'
+    TRUNCATE TABLE staging.raw_orders;
+    BULK INSERT staging.raw_orders 
+    FROM '/var/opt/mssql/SampleSuperstore.csv'
+    WITH (
+        FORMAT = 'CSV',
+        FIRSTROW = 2,
+        FIELDTERMINATOR = ',',
+        TABLOCK
+    );
+   END TRY
+   BEGIN CATCH
+        PRINT '===================='
+        PRINT 'ERROR OCCURED DURING LOADING STAGING LAYER'
+        PRINT 'Error Message' + ERROR_MESSAGE();
+        PRINT 'Error Message' + CAST(ERROR_MESSAGE() AS NVARCHAR);
+        PRINT 'Error Message' + CAST(ERROR_STATE() AS NVARCHAR);
+        PRINT '===================='
+   END CATCH 
+END
+
+SELECT * FROM staging.raw_orders;
