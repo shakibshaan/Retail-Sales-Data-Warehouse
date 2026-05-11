@@ -1,0 +1,14 @@
+CREATE DATABASE DataWarehouse;
+
+USE DataWarehouse;
+GO
+-- creating the schemas
+
+CREATE SCHEMA bronze;
+Go
+
+CREATE SCHEMA silver;
+Go
+
+CREATE SCHEMA gold;
+GO
