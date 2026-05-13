@@ -1,0 +1,15 @@
+tool_id,tool_name,category,pricing_model,monthly_active_users_millions,launch_year,parent_company,avg_user_rating,uae_popularity_rank
+TOOL001,ChatGPT,Image Generation,freemium,64.5,2020,Anthropic,4.4,1.0
+TOOL002,Google Gemini,Text Generation,Free,32.4,2022,Runway,3.2,2.0
+TOOL003,Claude AI,IMAGE GEN,Freemium,154.3,2023,Perplexity,3.2,3.0
+TOOL004,Microsoft Copilot,Text Generation,Freemium,175.3,2021,Google,3.5,4.0
+TOOL005,Midjourney,Text Generation,Paid,119.4,2024,Runway,4.8,
+TOOL006,GitHub Copilot,Code Assistant,freemium,111.1,1859,Jasper,,6.0
+TOOL007,Perplexity AI,Productivity,,103.1,2021,GitHub,3.5,7.0
+TOOL008,Jasper AI,Image Generation,freemium,24.2,2024,Google,9.6,8.0
+TOOL009,Runway ML,Text Generation,Paid,40.2,2023,N/A,4.7,9.0
+TOOL010,Notion AI,Text Generation,freemium,56.0,2024,Perplexity,3.8,10.0
+TOOL011,Grok,Productivity,PAID,172.1,2021,Notion,3.6,
+TOOL012,Adobe Firefly,Text Generation,freemium,25.9,2020,Perplexity,4.0,12.0
+TOOL001,chatgpt,Image Generation,freemium,64.5,2020,Anthropic,4.4,1.0
+TOOL003,Claude AI,text generation,Freemium,154.3,2023,Perplexity,3.2,3.0
